@@ -1,5 +1,5 @@
 """
-Student Name:
+Student Name: 
 Student ID:
 Student Email:
 """
@@ -267,7 +267,7 @@ def run_on_csv(model_filename, csv_filename):
     csv_data = load_csv(csv_filename)
     acc = test_accuracy(model, csv_data)
     print(f"{model_filename} accuracy on {csv_filename}: {acc:.4f}")
-    
+
 #train all 3  models
 model_200, losses_200, own_test_200 = train_model(200, 30)
 save_model(model_200, "model_200.pth")
