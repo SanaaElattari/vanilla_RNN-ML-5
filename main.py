@@ -1,7 +1,7 @@
 """
-Student Name: 
-Student ID:
-Student Email:
+Student Name: Sanaa Elattari
+Student ID:21336359
+Student Email: sselattari@connect.ust.hk 
 """
 
 
@@ -142,8 +142,8 @@ class RNN(nn.Module):
 
 # hyperparameters
 vocab_size = 10        # digits 0–9
-embedding_size = 8     # small vector size
-hidden_size = 128
+embedding_size = 16     # small vector size
+hidden_size = 256
 output_size = 2        # palindrome or not
 
 # create new model each time 
@@ -151,7 +151,7 @@ def create_model():
     return RNN(vocab_size, embedding_size, hidden_size, output_size)
 
 #training 
-learning_rate = 0.005
+learning_rate = 0.003
 criterion = nn.NLLLoss()
 
 def train(model, category_tensor, line_tensor):
@@ -279,12 +279,12 @@ save_model(model_1000, "model_1000.pth")
 save_loss_plot(losses_1000, "loss_1000.png", "Training Loss (1000 examples)")
 print("Own test accuracy for model_1000:", test_accuracy(model_1000, own_test_1000))
 
-model_50000, losses_50000, own_test_50000 = train_model(50000, 10)  # CHANGED: fewer epochs because dataset is large
+model_50000, losses_50000, own_test_50000 = train_model(50000, 20)  # CHANGED: fewer epochs because dataset is large
 save_model(model_50000, "model_50000.pth")
 save_loss_plot(losses_50000, "loss_50000.png", "Training Loss (50000 examples)")
 print("Own test accuracy for model_50000:", test_accuracy(model_50000, own_test_50000))
 
 # make sure test.csv is in the same folder
-run_on_csv("model_200.pth", "test.csv")
-run_on_csv("model_1000.pth", "test.csv")
-run_on_csv("model_50000.pth", "test.csv")
+#run_on_csv("model_200.pth", "test.csv")
+#run_on_csv("model_1000.pth", "test.csv")
+#run_on_csv("model_50000.pth", "test.csv")
